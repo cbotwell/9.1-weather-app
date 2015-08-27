@@ -8,18 +8,19 @@
 
 <h3>Current Weather</h3>
 <p>{{location.currently.summary}}</p>
-<p>{{location.currently.temperature}}</p>
+<p>Temperature: {{location.currently.temperature}}°F</p>
+<p>Feels Like: {{location.currently.apparentTemperature}}°F</p>
 
 <h3>Next 7 Days</h3>
 <p>{{location.daily.summary}}</p>
 <ul>
     {{#each location.daily.data as |day|}}
     <li>
-        <h4>{{moment-format day.time 'dddd'}}</h4>
+        <h4>{{moment-format day.time 'dddd' 'X'}}</h4>
         <p>{{day.summary}}</p>
         <ul>
-            <li>Low: {{day.temperatureMin}} at {{moment-format day.temperatureMinTime 'h:m a'}}</li>
-            <li>High: {{day.temperatureMax}} at {{moment-format day.temperatureMaxTime 'h:m a'}}</li>
+            <li>Low: {{day.temperatureMin}}°F at {{moment-format day.temperatureMinTime 'h:mm a' 'X'}}</li>
+            <li>High: {{day.temperatureMax}}°F at {{moment-format day.temperatureMaxTime 'h:mm a' 'X'}}</li>
         </ul>
     </li>
     {{/each}}
