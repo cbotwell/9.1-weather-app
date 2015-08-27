@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'weather-app',
+    contentSecurityPolicy: { 'connect-src': "'self' https://safe-river-8896.herokuapp.com/" },
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
