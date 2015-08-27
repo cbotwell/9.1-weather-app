@@ -1,0 +1,72 @@
+@import 'reset';
+@import "bourbon";
+@import "neat";
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+$primary-color: #563d7c;
+$secondary-color: #6f5499;
+$gray-color: #c8c8c8;
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+nav {
+    background: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+    color: white;
+    margin-bottom: 30px;
+    padding: 20px;
+    overflow: auto;
+
+     a h1 {
+        font-size: 2em;
+        float: left;
+        color: white;
+    }
+
+    .right-nav {
+        overflow: auto;
+        float: right;
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+    }
+
+    button, input {
+        background: none;
+        border: 2px solid white;
+        color: inherit;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    input:focus {
+        outline: none;
+    }
+}
+
+.container {
+    @include outer-container(980px);
+}
+
+.section {
+    background: lighten($gray-color, 15%);
+    outline: 1px solid darken($gray-color, 15%);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+h3, h4 {
+    color: $primary-color;
+}
+
+.day, .week {
+    display: none;
+}
