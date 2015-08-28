@@ -5,5 +5,9 @@ export default Ember.Route.extend({
     redirectWeather: function(lat, lng) {
       this.transitionTo('weather', lat, lng);
     },
+
+    transitionToLoading: function() {
+      this.transitionTo('loading');
+    },
   },
 });

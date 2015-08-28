@@ -9,6 +9,8 @@ export default Ember.Component.extend({
           var lng = position.coords.longitude;
           this.sendAction('foundLocation', lat, lng);
         });
+
+        this.sendAction('loading');
       } else {
         alert('Your Browser Does Not Support Geolocation');
       }

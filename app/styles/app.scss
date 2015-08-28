@@ -21,7 +21,7 @@ nav {
     background: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
     color: white;
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 30px;
     overflow: auto;
 
      a h1 {
@@ -35,7 +35,7 @@ nav {
         float: right;
         li {
             float: left;
-            margin-left: 10px;
+            margin-left: 20px;
         }
     }
 
@@ -43,14 +43,25 @@ nav {
         background: none;
         border: 2px solid white;
         color: inherit;
-        font-size: 1em;
-        border-radius: 5px;
+        font-size: 0.9em;
         padding: 8px;
         width: 180px;
         text-align: center;
+        font-weight: normal
+    }
+
+    button:hover, input:hover {
+        background: darken($primary-color, 10%);
+        border: 2px solid darken($primary-color, 10%);
     }
 
     input:focus {
+        background: darken($primary-color, 10%);
+        border: 2px solid darken($primary-color, 10%);
+        outline: none;
+    }
+
+    button:focus{
         outline: none;
     }
 }
@@ -68,8 +79,36 @@ nav {
 
 h3, h4 {
     color: $primary-color;
+    margin-bottom: 10px;
 }
 
 .day, .week {
     display: none;
+}
+
+.week {
+    padding-left: 30px;
+}
+.day {
+    margin-top: 10px;
+}
+
+.alerts {
+    background: red;
+    color: white;
+    outline: 1px solid red;
+}
+
+.cover-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.fa-spinner {
+    color: $primary-color;
+}
+
+.center {
+    text-align: center;
 }
