@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
-
+<nav>
+    <div class="container">
+        {{#link-to 'index'}}<h1>Weather App</h1>{{/link-to}}
+        <ul class="right-nav">
+            <li>
+                {{input placeholder="search"}}
+            </li>
+            <li>
+            {{current-location foundLocation="redirectWeather" loading="transitionToLoading"}}
+            </li>
+        </ul>
+    </div>
+</nav>
 {{outlet}}

@@ -1,0 +1,40 @@
+{{#if location.alerts}}
+    <div class="section alerts">
+        <h3>Alerts</h3>
+        {{#each location.alerts as |alert|}}
+        <p>{{alert.title}}</p>
+        <p>Expires: {{alert.expires}}</p>
+        {{/each}}
+    </div>
+{{/if}}
+
+<div class="section weather current">
+    <h3>Current Weather</h3>
+    <p>{{location.currently.summary}}, {{location.currently.temperature}}°F, feels like {{location.currently.apparentTemperature}}°F</p>
+    <div class="icon">{{sky-icon height="50" width="50" icon=location.currently.icon color="#563d7c"}}</div>
+</div>
+
+<div class="section weather" {{action 'showWeek' on='click'}}>
+    <h3>Next 7 Days</h3>
+    <p>{{location.daily.summary}}</p>
+    <div class="icon">{{sky-icon height="50" width="50" icon=location.daily.icon color="#563d7c"}}</div>
+</div>
+<div class="week">
+    <ul>
+        {{#each location.daily.data as |day|}}
+       <div class="section weather">
+            <li {{action 'showDay' on='click'}}>
+               <h4>{{moment-format day.time 'dddd' 'X'}}</h4>
+               <p>{{day.summary}}</p>
+               <div class="day">
+                   <ul>
+                       <li><span>Low:</span> {{day.temperatureMin}}°F at {{moment-format day.temperatureMinTime 'h:mm a' 'X'}}</li>
+                       <li><span>High:</span> {{day.temperatureMax}}°F at {{moment-format day.temperatureMaxTime 'h:mm a' 'X'}}</li>
+                   </ul>
+               </div>
+               <div class="icon">{{sky-icon height="50" width="50" icon=day.icon color="#563d7c"}}</div>
+           </li>
+       </div>
+        {{/each}}
+    </ul>
+</div>
